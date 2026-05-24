@@ -1,4 +1,72 @@
-document.getElementById("year").textContent=new Date().getFullYear(),document.addEventListener("DOMContentLoaded",function(){new Typed(".typed",{strings:document.querySelector(".typed").getAttribute("data-typed-items").split(","),typeSpeed:100,backSpeed:50,backDelay:1500,loop:!0})});const particlesContainer=document.getElementById("particles");for(let i=0;i<15;i++){let e=document.createElement("div");e.className="particle",e.style.width=100*Math.random()+50+"px",e.style.height=e.style.width,e.style.left=100*Math.random()+"%",e.style.top=100*Math.random()+"%",e.style.animationDelay=20*Math.random()+"s",e.style.animationDuration=10*Math.random()+15+"s",particlesContainer.appendChild(e)}document.addEventListener("mousemove",e=>{let t=document.querySelectorAll(".parallax-text"),l=(e.clientX/window.innerWidth-.5)*20,n=(e.clientY/window.innerHeight-.5)*20;t.forEach((e,t)=>{let a=(t+1)*.5;e.style.transform=`translate(${l*a}px, ${n*a}px)`})});const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add("visible")})},{threshold:.1});document.querySelectorAll(".reveal").forEach(e=>observer.observe(e));let lastScroll=0;const navbar=document.querySelector(".navbar");window.addEventListener("scroll",()=>{let e=window.pageYOffset;e>50?navbar.classList.add("scrolled"):navbar.classList.remove("scrolled");let t=window.scrollY+190;document.querySelectorAll(".nav-link").forEach(e=>{let l=document.querySelector(e.getAttribute("href"));l&&l.offsetTop<=t&&l.offsetTop+l.offsetHeight>t&&(document.querySelectorAll(".nav-link").forEach(e=>e.classList.remove("active")),e.classList.add("active"))}),lastScroll=e});let cursorTrail=[];document.addEventListener("mousemove",e=>{if(window.innerWidth>768){let t=document.createElement("div");t.className="cursor-trail",t.style.cssText=`
+((document.getElementById('year').textContent = new Date().getFullYear()),
+  document.addEventListener('DOMContentLoaded', function () {
+    new Typed('.typed', {
+      strings: document
+        .querySelector('.typed')
+        .getAttribute('data-typed-items')
+        .split(','),
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 1500,
+      loop: !0,
+    });
+  }));
+const particlesContainer = document.getElementById('particles');
+for (let i = 0; i < 15; i++) {
+  let e = document.createElement('div');
+  ((e.className = 'particle'),
+    (e.style.width = 100 * Math.random() + 50 + 'px'),
+    (e.style.height = e.style.width),
+    (e.style.left = 100 * Math.random() + '%'),
+    (e.style.top = 100 * Math.random() + '%'),
+    (e.style.animationDelay = 20 * Math.random() + 's'),
+    (e.style.animationDuration = 10 * Math.random() + 15 + 's'),
+    particlesContainer.appendChild(e));
+}
+document.addEventListener('mousemove', (e) => {
+  let t = document.querySelectorAll('.parallax-text'),
+    l = (e.clientX / window.innerWidth - 0.5) * 20,
+    n = (e.clientY / window.innerHeight - 0.5) * 20;
+  t.forEach((e, t) => {
+    let a = (t + 1) * 0.5;
+    e.style.transform = `translate(${l * a}px, ${n * a}px)`;
+  });
+});
+const observer = new IntersectionObserver(
+  (e) => {
+    e.forEach((e) => {
+      e.isIntersecting && e.target.classList.add('visible');
+    });
+  },
+  { threshold: 0.1 }
+);
+document.querySelectorAll('.reveal').forEach((e) => observer.observe(e));
+let lastScroll = 0;
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+  let e = window.pageYOffset;
+  e > 50
+    ? navbar.classList.add('scrolled')
+    : navbar.classList.remove('scrolled');
+  let t = window.scrollY + 190;
+  (document.querySelectorAll('.nav-link').forEach((e) => {
+    let l = document.querySelector(e.getAttribute('href'));
+    l &&
+      l.offsetTop <= t &&
+      l.offsetTop + l.offsetHeight > t &&
+      (document
+        .querySelectorAll('.nav-link')
+        .forEach((e) => e.classList.remove('active')),
+      e.classList.add('active'));
+  }),
+    (lastScroll = e));
+});
+let cursorTrail = [];
+(document.addEventListener('mousemove', (e) => {
+  if (window.innerWidth > 768) {
+    let t = document.createElement('div');
+    ((t.className = 'cursor-trail'),
+      (t.style.cssText = `
     position: fixed;
     width: 5px;
     height: 5px;
@@ -10,4 +78,72 @@ document.getElementById("year").textContent=new Date().getFullYear(),document.ad
     opacity: 0.5;
     z-index: 9999;
     transition: opacity 0.5s;
-`,document.body.appendChild(t),setTimeout(()=>{t.style.opacity="0",setTimeout(()=>t.remove(),500)},100)}}),document.getElementById("contactForm").addEventListener("submit",function(e){e.preventDefault();let t=document.getElementById("name").value,l=document.getElementById("email").value,n=document.getElementById("message").value,a=`mailto:yusufchota7@gmail.com?body=${encodeURIComponent("Name: "+t+"\nEmail: "+l+"\n\nMessage:\n"+n)}`;window.location.href=a;let s=this.querySelector(".btn-send"),r=s.textContent;s.textContent="✓ Message Sent!",s.style.background="#10b981",setTimeout(()=>{alert("Message send Successfully")},500),setTimeout(()=>{s.textContent=r,s.style.background="",this.reset()},2e3)});const text="Mohammed Yusuf";let i=0;function type(){document.getElementById("text").textContent+=text.charAt(i),++i<text.length&&setTimeout(type,100)}window.onload=type;
+`),
+      document.body.appendChild(t),
+      setTimeout(() => {
+        ((t.style.opacity = '0'), setTimeout(() => t.remove(), 500));
+      }, 100));
+  }
+}),
+  document
+    .getElementById('contactForm')
+    .addEventListener('submit', function (e) {
+      e.preventDefault();
+      let t = document.getElementById('name').value,
+        l = document.getElementById('email').value,
+        n = document.getElementById('message').value,
+        a = `mailto:yusufchota7@gmail.com?body=${encodeURIComponent('Name: ' + t + '\nEmail: ' + l + '\n\nMessage:\n' + n)}`;
+      window.location.href = a;
+      let s = this.querySelector('.btn-send'),
+        r = s.textContent;
+      ((s.textContent = '✓ Message Sent!'),
+        (s.style.background = '#10b981'),
+        setTimeout(() => {
+          alert('Message send Successfully');
+        }, 500),
+        setTimeout(() => {
+          ((s.textContent = r), (s.style.background = ''), this.reset());
+        }, 2e3));
+    }));
+const text = 'Mohammed Yusuf';
+let i = 0;
+function type() {
+  ((document.getElementById('text').textContent += text.charAt(i)),
+    ++i < text.length && setTimeout(type, 100));
+}
+window.onload = type;
+
+// form validation
+
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // Validation
+  if (!name || !email || !message) {
+    alert('Please fill all fields');
+    return;
+  }
+
+  // Email format validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address');
+    return;
+  }
+
+  // Build message and encode properly
+  const whatsappMessage = encodeURIComponent(
+    `Hello, my name is ${name}\nEmail: ${email}\nMessage: ${message}`
+  );
+
+  const phoneNumber = '917338992687'; // Include country code (91 for India)
+  const url = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+
+  window.open(url, '_blank');
+});
